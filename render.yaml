@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: whatsapp-cod-agent
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: STORE_NAME
+        sync: false
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: PHONE_NUMBER_ID
+        sync: false
+      - key: VERIFY_TOKEN
+        sync: false
+      - key: SHEET_WEBHOOK_SECRET
+        sync: false
+      - key: RAW_ORDERS_SHEET_ID
+        sync: false
+      - key: CONFIRMED_ORDERS_SHEET_ID
+        sync: false
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false
