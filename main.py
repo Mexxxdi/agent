@@ -408,6 +408,7 @@ async def new_order(
     return {"ok": True, "row_index": row_index, "to": to_phone}
 
 
+@app.get("/webhook")
 @app.get("/webhook/whatsapp")
 async def whatsapp_verify(
     hub_mode: str | None = Query(default=None, alias="hub.mode"),
@@ -420,6 +421,7 @@ async def whatsapp_verify(
     raise HTTPException(status_code=403, detail="Verification failed")
 
 
+@app.post("/webhook")
 @app.post("/webhook/whatsapp")
 async def whatsapp_incoming(request: Request):
     body = await request.json()
